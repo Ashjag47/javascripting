@@ -1,39 +1,44 @@
-function prime(p) {
-    for(let i=2; i<2; i++){
-        if(p%i==0){
-            return 0
+const isPrime = (n) => {
+    for(let i=2; i<=Math.sqrt(n); i++){
+        if(n%i==0){
+            return false
         }
     }
-    return 1
-  }
-
-function amstrong(number){
-    const numberOfDigits = number.toString().length;
-     let sum = 0;
+    return true
+}
 
 
+const isArmstrong = (number) => {
+const numberOfDigits = number.toString().length;
+let sum = 0;
 let temp = number;
 
 while (temp > 0) {
-
     let remainder = temp % 10;
-
     sum += remainder ** numberOfDigits;
-
-    
     temp = parseInt(temp / 10); 
 }
 
 if (sum == number) {
-    return 1
+    return true
 }
 else {
-    return 0
+    return false
 }
 }
+
 
 let n=153
 
-if (prime(n) && amstrong(n)){
-    console.log("number is prime and it is amstrong number")
+if (isPrime(n)){
+    console.log("number is prime ")
+}
+else{
+    console.log("number is not a prime ")
+}
+if (isArmstrong(n)){
+    console.log("number is Armstrong")
+}
+else{
+    console.log("number is not Armstrong ")
 }
